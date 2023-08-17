@@ -331,19 +331,19 @@ Wbpd.prototype={
             var url_format = parseInt($(".btn-format").parent().children(".active").prop("value"));
             switch (url_format) {
                 case 1:
-                    $('#res' + i).val(callBackImg); //原始链接
+                    $('#res' + i).val('https://image.baidu.com/search/down?url='+callBackImg); //原始链接
                     break;
                 case 2:
-                    $('#res' + i).val('<img src="' + callBackImg + '"/>'); //img
+                    $('#res' + i).val('<img src="' + 'https://image.baidu.com/search/down?url='+callBackImg + '"/>'); //img
                     break;
                 case 3:
-                    $('#res' + i).val('[IMG]' + callBackImg + '[/IMG]'); //ubb
+                    $('#res' + i).val('[IMG]' + 'https://image.baidu.com/search/down?url='+callBackImg + '[/IMG]'); //ubb
                     break;
                 case 4:
-                    $('#res' + i).val('!['+params.pic_name+'](' + callBackImg + ')'); //markdown
+                    $('#res' + i).val('!['+params.pic_name+'](' + 'https://image.baidu.com/search/down?url='+callBackImg + ')'); //markdown
                     break;
                 default:
-                    $('#res' + i).val(callBackImg);
+                    $('#res' + i).val('https://image.baidu.com/search/down?url='+callBackImg);
                     break;
             }
         } else { //单图模式
