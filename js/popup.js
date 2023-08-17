@@ -325,25 +325,25 @@ Wbpd.prototype={
     },
     changePicFormat: function(params, i) {
         var picSizeType = $(".btn-group").children(".active").prop("value"); //获取图片大小
-        var callBackImg = Wbpd.prototype.pid2url(params, picSizeType);
+        var callBackImg = 'https://image.baidu.com/search/down?url='+Wbpd.prototype.pid2url(params, picSizeType);
         if (Wbpd.prototype.is_batch > 0 && arguments.length > 1) { //批量模式
             $('#res' + i).data('url', callBackImg); //批量模式,数据存到下面的地址框中
             var url_format = parseInt($(".btn-format").parent().children(".active").prop("value"));
             switch (url_format) {
                 case 1:
-                    $('#res' + i).val('https://image.baidu.com/search/down?url='+callBackImg); //原始链接
+                    $('#res' + i).val(callBackImg); //原始链接
                     break;
                 case 2:
-                    $('#res' + i).val('<img src="' + 'https://image.baidu.com/search/down?url='+callBackImg + '"/>'); //img
+                    $('#res' + i).val('<img src="' + callBackImg + '"/>'); //img
                     break;
                 case 3:
-                    $('#res' + i).val('[IMG]' + 'https://image.baidu.com/search/down?url='+callBackImg + '[/IMG]'); //ubb
+                    $('#res' + i).val('[IMG]' + callBackImg + '[/IMG]'); //ubb
                     break;
                 case 4:
-                    $('#res' + i).val('!['+params.pic_name+'](' + 'https://image.baidu.com/search/down?url='+callBackImg + ')'); //markdown
+                    $('#res' + i).val('!['+params.pic_name+'](' + callBackImg + ')'); //markdown
                     break;
                 default:
-                    $('#res' + i).val('https://image.baidu.com/search/down?url='+callBackImg);
+                    $('#res' + i).val(callBackImg);
                     break;
             }
         } else { //单图模式
